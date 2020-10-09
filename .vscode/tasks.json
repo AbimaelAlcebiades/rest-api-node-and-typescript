@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"dependsOn": [
+				"prestart",
+				"tsc: build - tsconfig.json"
+			]
+		},
+		{
+			"label": "prestart",
+			"type": "npm",
+			"script": "prestart",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"problemMatcher": [],
+			"detail": "knex --knexfile knexfile.ts migrate:latest"
+		},
+		{
+			"label": "tsc: build - tsconfig.json",
+			"type": "typescript",
+			"tsconfig": "tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

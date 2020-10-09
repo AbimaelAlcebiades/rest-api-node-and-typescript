@@ -1,14 +1,13 @@
 import express, { Request, Response } from 'express';
-import { request } from 'http';
-import { AttendanceModel } from '../models/AttendanceModel';
-import { Attendance } from "../models/Attendence";
+import { AttendanceService } from '../services/AttendanceService';
+import { Attendance } from "../services/Attendence";
 import { Controller } from './Controller';
 
 export class AttendanceController implements Controller {
 
   public path = '/';
   public router = express.Router();
-  public model: AttendanceModel = new AttendanceModel();
+  public model: AttendanceService = new AttendanceService();
 
   constructor() {
     this.intializeRoutes();
@@ -25,11 +24,12 @@ export class AttendanceController implements Controller {
 
   private createAttendance = (req: Request, res: Response) => {
     const attendance: Attendance = req.body;
+
     this.model.create(attendance).then(result => {
       res.status(200).send(result);
     }).catch((error: Error) => {
       res.status(500).send(error.message);
-    })
+    });
   }
 
 }

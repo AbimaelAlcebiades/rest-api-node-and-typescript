@@ -3,6 +3,9 @@ content-type: application/json
 
 {
     "customer": "Abimael",
+    "pet": "Frederico",
     "service": "Wash",
-    "status": "required"
+    "serviceDate": "2020-10-08T12:00:00.000-03:00",
+    "status": "required",
+    "notes": "Somenthing about this order"
 }

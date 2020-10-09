@@ -1,7 +1,7 @@
 import knex from "knex";
 import path from "path";
 
-export class Connection {
+export class Database {
 
   getConnection() {
     return knex({

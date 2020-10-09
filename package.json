@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "prestart": "knex --knexfile knexfile.ts migrate:latest",
-    "start": "nodemon ./dist/index.js",
+    "start": "nodemon ./src/index.ts",
     "knex:seed": "knex --knexfile knexfile.ts seed:run"
   },
   "author": "Abimael Alcebíades",
@@ -14,6 +14,7 @@
     "consign": "^0.1.6",
     "express": "^4.17.1",
     "knex": "^0.21.6",
+    "moment": "^2.29.1",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
