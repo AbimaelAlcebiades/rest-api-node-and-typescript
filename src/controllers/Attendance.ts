@@ -7,7 +7,7 @@ export class AttendanceController implements Controller {
 
   public path = '/';
   public router = express.Router();
-  public model: AttendanceService = new AttendanceService();
+  public attendanceService: AttendanceService = new AttendanceService();
 
   constructor() {
     this.intializeRoutes();
@@ -25,8 +25,8 @@ export class AttendanceController implements Controller {
   private createAttendance = (req: Request, res: Response) => {
     const attendance: Attendance = req.body;
 
-    this.model.create(attendance).then(result => {
-      res.status(200).send(result);
+    this.attendanceService.create(attendance).then(result => {
+      res.status(201).send(result);
     }).catch((error: Error) => {
       res.status(500).send(error.message);
     });
