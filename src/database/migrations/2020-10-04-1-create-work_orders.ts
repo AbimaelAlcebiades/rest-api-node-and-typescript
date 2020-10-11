@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export async function up(knex: Knex) {
-    return knex.schema.createTable(`attendances`, table => {
+    return knex.schema.createTable(`work_orders`, table => {
         table.increments('id').primary();
         table.string('customer', 50).notNullable();
         table.string('pet', 20).nullable();
@@ -14,5 +14,5 @@ export async function up(knex: Knex) {
 }
 
 export async function down(knex: Knex) {
-    return knex.schema.dropTableIfExists(`points`);
+    return knex.schema.dropTableIfExists(`work_orders`);
 }

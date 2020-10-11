@@ -1,7 +1,7 @@
 import Knex from "knex";
 
 export async function seed(knex: Knex) {
-  await knex('attendance').insert([
+  await knex('work_orders').insert([
     {
       customer: "Abimael",
       pet: "Frederico",

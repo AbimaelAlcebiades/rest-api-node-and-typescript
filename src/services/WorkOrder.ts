@@ -1,4 +1,5 @@
-export interface Attendance {
+export interface WorkOrder {
+  id: number;
   customer: string;
   pet: string;
   service: string;

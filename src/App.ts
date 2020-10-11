@@ -1,4 +1,4 @@
-import express, { Application, Express } from "express";
+import express, { Application } from "express";
 import * as bodyParser from 'body-parser';
 import { Controller } from "./controllers/Controller";
 
@@ -6,6 +6,7 @@ export class App {
 
   app: Application;
   port: number;
+  version = "v1";
 
   constructor(controllers: Array<Controller>, port: number) {
     this.app = express();
@@ -21,7 +22,7 @@ export class App {
 
   private initializeControllers(controllers: Array<Controller>) {
     controllers.forEach((controller) => {
-      this.app.use('/', controller.router);
+      this.app.use(`/${this.version}/`, controller.router);
     });
   }
 
